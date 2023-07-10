@@ -42,7 +42,7 @@ async function create(req: Request) {
 
   try {
     const output = await todoRepository.createByContent(body.data.content);
-    return NextResponse.json(output, { status: 201 });
+    return NextResponse.json({ todo: output }, { status: 201 });
   } catch (error) {
     return NextResponse.json(
       { error: { message: error.message } },

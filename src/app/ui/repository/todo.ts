@@ -76,16 +76,12 @@ async function createByContent(content: string): Promise<Todo> {
   }).then(async (res) => {
     const responseBody = await res.json();
 
-    console.log("response.body", responseBody);
-
     if (res.ok) {
       const ServerResponseSchema = schema.object({
         todo: TodoSchema,
       });
 
       const serverResponseParsed = ServerResponseSchema.safeParse(responseBody);
-
-      console.log("serverResponseParsed", serverResponseParsed);
 
       if (serverResponseParsed.success === false) {
         throw new Error(serverResponseParsed.error.message);
