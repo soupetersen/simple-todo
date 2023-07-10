@@ -71,7 +71,7 @@ async function deleteById(id: string) {
     id: schema.string().uuid().nonempty(),
   });
 
-  const query = QueryParamsSchema.safeParse(id);
+  const query = QueryParamsSchema.safeParse({ id });
 
   if (query.success === false) {
     return NextResponse.json({ error: query.error }, { status: 400 });

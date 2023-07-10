@@ -6,7 +6,7 @@ type DeleteByIdParams = {
   };
 };
 
-export async function PUT(req: Request, params: DeleteByIdParams) {
+export async function DELETE(req: Request, params: DeleteByIdParams) {
   const { id } = params.params;
 
   return await todoController.deleteById(id);
