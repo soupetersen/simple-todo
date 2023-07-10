@@ -21,7 +21,7 @@ async function get(req: Request) {
     return NextResponse.json({ error: "limit is required" }, { status: 400 });
   }
 
-  const output = await todoRepository.get();
+  const output = await todoRepository.get({ page, limit });
   return NextResponse.json(output, { status: 200 });
 }
 
@@ -40,9 +40,15 @@ async function create(req: Request) {
     return NextResponse.json({ error: body.error }, { status: 400 });
   }
 
-  const output = await todoRepository.createByContent(body.data.content);
-
-  return NextResponse.json(output, { status: 201 });
+  try {
+    const output = await todoRepository.createByContent(body.data.content);
+    return NextResponse.json(output, { status: 201 });
+  } catch (error) {
+    return NextResponse.json(
+      { error: { message: error.message } },
+      { status: 400 },
+    );
+  }
 }
 
 async function toggleDone(req: Request, id: string) {

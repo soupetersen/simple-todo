@@ -11,7 +11,7 @@ interface TodoControllerCreateParams {
   content?: string;
 }
 
-async function get({ page, limit = 5 }: TodoControllerGetParams = {}) {
+async function get({ page, limit = 3 }: TodoControllerGetParams = {}) {
   return todoRepository.get({ page: page ?? 1, limit });
 }
 
