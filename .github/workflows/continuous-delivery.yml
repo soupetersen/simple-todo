@@ -8,8 +8,8 @@ on:
     branches: [ master ]
 
 env:
-  VERCEL_ORG_ID: nvquWHxA3eADFldS6IK8tX7W
-  VERCEL_PROJECT_ID: prj_63AYbMLPiYGiYreBLPVr4mos1mKu
+  VERCEL_ORG_ID: team_Mzqa4WTBltYYYP6cEaaKJxEh
+  VERCEL_PROJECT_ID: prj_N9pEaVUzAAwLzvS2a7ueZX86WPrc
 
 jobs: 
   deploy: 
